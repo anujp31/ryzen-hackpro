@@ -5,6 +5,9 @@
 - Asus GTX 960 2GB _[(GTX960-DC2OC-4GD5-BLACK)](https://www.asus.com/Graphics-Cards/GTX960-DC2OC-4GD5-BLACK/)_
 - 500GB Samsung 960 EVO _(NVMe)_
 
+# What doesn't work
+- HDMI (and probably DisplayPort too)
+
 # Create USB
 ~Format drive as Mac OS Extended (Journaled)~ _just use transmac_
 
