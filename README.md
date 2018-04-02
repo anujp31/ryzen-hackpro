@@ -1,0 +1,2 @@
+# ryzen-hackpro
+Ryzen hackintosh
