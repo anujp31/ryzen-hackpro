@@ -16,18 +16,13 @@ Download HighSierraAMD_V2 UEFI [HighSierraAMD V2](https://goo.gl/czVVY8)
 
 Restore to USB using [transmac](https://www.acutesystems.com/scrtm.htm) _(Disk Utility wont create EFI)_
 
-## mount USB as EFI and add OsxAptioFixDrv-64.efi
-```bash
-diskutil list
-diskutil mount disk1s2
-# replace disk1s2 with correct USB disk/partition
-```
+Mount USB EFI and copy [OsxAptioFixDrv-64.efi](https://drive.google.com/file/d/1yjVVZddnvvfYcf5ha9JCH5LOw1-894RP/view?usp=sharin) to `EFI/CLOVER/drivers64UEFI`
 
-Download [OsxAptioFixDrv-64.efi](https://drive.google.com/file/d/1yjVVZddnvvfYcf5ha9JCH5LOw1-894RP/view?usp=sharin) and copy to `EFI/CLOVER/drivers64UEFI`
+### Notes
+Might just be easier to install __OsxAptioFix3Drv-64.efi__ to the USB EFI using Clover Configurator
 
-```bash
-cp ~/Downloads/OsxAptioFixDrv-64.efi /Volumes/EFI/EFI/CLOVER/drivers64UEFI/
-```
+Add __apfs.efi__ too if missing
+
 
 ## BIOS
 Configure the following BIOS options
@@ -65,14 +60,13 @@ Open __Terminal__ and type
 
 ## Clover Configurator
 
-[Clover Configurator](https://mackie100projects.altervista.org/download-clover-configurator/)
+Download [Clover Configurator](https://mackie100projects.altervista.org/download-clover-configurator/) and install to `SSD`.
 
-Use Clover installer to install Clover to `SSD`.
+Because the latest Clover (4411) doesn't work with Ryzen, use the USB installer's Clover
 
-Because the latest Clover (4411) doesn't work with Ryzen, use the USB installer's Clover:
-Use Clover Configurator to mount SSD EFI and ovewrite the entire SSD EFI with the USB EFI
+Use __Clover Configurator__ to mount both SSD and USB EFI and overwrite the entire SSD EFI with the USB EFI
 
-Make sure the config.plist the following edits
+Make sure the config.plist has the following edits
 
 - __Install Drivers:__ `OsxAptioFix3Drv-64` _(remove any other OsxAptioFix)_
 - __Boot:__ In _Custom Flags_ remove `-radoff`
@@ -86,7 +80,7 @@ The 378.10 Nvidia driver does not support HDMI, however the 387.10 driver _does_
 
 According to the forums the AMD kernel patch currently has issues with 10.13.4, so we'll use 10.13.3 instead.
 
-## Update steps
+## update steps
 
 Download the [10.13.3](https://support.apple.com/kb/DL1954) update and start the install.
 
